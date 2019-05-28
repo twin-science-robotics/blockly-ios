@@ -491,7 +491,7 @@ public class NumberPadTextField: UITextField {
 
   // MARK: - Text Field Rendering
 
-  public override func selectionRects(for range: UITextRange) -> [Any] {
+  public override func selectionRects(for range: UITextRange) -> [UITextSelectionRect] {
     // Disable selection ranges.
     return []
   }

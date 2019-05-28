@@ -149,7 +149,7 @@ public protocol DropdownViewDelegate: class {
     addSubview(_button)
     addSubview(_dropDownArrow)
     addSubview(_label)
-    sendSubview(toBack: _button)
+    sendSubviewToBack(_button)
   }
 
   /**

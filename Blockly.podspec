@@ -7,10 +7,10 @@
 #
 
 Pod::Spec.new do |s|
-  s.name             = 'Blockly'
-  s.module_name      = 'Blockly'
-  s.version          = '1.2.2'
-  s.summary          = 'A library from Google for building visual programming editors.'
+  s.name             = 'Twin-Blockly'
+  s.module_name      = 'Twin-Blockly'
+  s.version          = '1.0.0'
+  s.summary          = 'Customized version of Blockly.'
   s.description      = <<-DESC
   Blockly is a visual editor that allows users to write programs by plugging blocks together.
   Developers can integrate the Blockly editor into their own applications to create a great
@@ -21,7 +21,7 @@ Pod::Spec.new do |s|
   s.license          = 'Apache License, Version 2.0'
   s.author           = 'Google Inc.'
   s.source           = {
-                         :git => 'https://github.com/google/blockly-ios.git',
+                         :git => 'https://github.com/twin-science-robotics/blockly-ios.git',
                          :tag => s.version.to_s
                        }
   s.screenshots      = ['https://google.github.io/blockly-ios/demo.gif']

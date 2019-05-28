@@ -151,8 +151,7 @@ public protocol WorkbenchViewControllerDelegate: class {
   open fileprivate(set) lazy var trashCanView: TrashCanView = {
     // Create trash can button
     let trashCanView = TrashCanView(imageNamed: "trash_can")
-    trashCanView.button
-      .addTarget(self, action: #selector(didTapTrashCan(_:)), for: .touchUpInside)
+    trashCanView.button.addTarget(self, action: #selector(didTapTrashCan(_:)), for: .touchUpInside)
     trashCanView.button.isUserInteractionEnabled = self.keepTrashedBlocks
     trashCanView.tintColor = ColorPalette.grey.tint800
     return trashCanView
@@ -258,7 +257,7 @@ public protocol WorkbenchViewControllerDelegate: class {
   /// Displays (`true`) or hides (`false`) a trash can. By default, this value is set to `true`.
   open var enableTrashCan: Bool = true {
     didSet {
-      setTrashCanViewVisible(enableTrashCan)
+//      setTrashCanViewVisible(enableTrashCan)
 
       if !enableTrashCan {
         // Hide trash can folder
@@ -451,6 +450,8 @@ public protocol WorkbenchViewControllerDelegate: class {
 
   // MARK: - Super
 
+  public let categoryWidth:CGFloat = UIDevice.current.userInterfaceIdiom == .pad ? 200 : 150
+  
   open override func loadView() {
     super.loadView()
 
@@ -458,12 +459,12 @@ public protocol WorkbenchViewControllerDelegate: class {
     workspaceBackgroundColor = ColorPalette.grey.tint50
     undoButton.tintColor = ColorPalette.grey.tint800
     redoButton.tintColor = ColorPalette.grey.tint800
-    toolboxCategoryListViewController.categoryFont = UIFont.systemFont(ofSize: 16)
+    toolboxCategoryListViewController.categoryFont = UIFont(name: "MuseoSansRounded-700", size: 16)!
     toolboxCategoryListViewController.unselectedCategoryTextColor = ColorPalette.grey.tint900
     toolboxCategoryListViewController.unselectedCategoryBackgroundColor = ColorPalette.grey.tint300
     toolboxCategoryListViewController.selectedCategoryTextColor = ColorPalette.grey.tint100
-    toolboxCategoryViewController.view.backgroundColor =
-      ColorPalette.grey.tint300.withAlphaComponent(0.75)
+    //BURACULES - TOOLBOX BG COLOR
+    toolboxCategoryViewController.view.backgroundColor = UIColor.white.withAlphaComponent(0.5)
     trashCanViewController.view.backgroundColor =
       ColorPalette.grey.tint300.withAlphaComponent(0.75)
 
@@ -475,10 +476,10 @@ public protocol WorkbenchViewControllerDelegate: class {
     view.autoresizingMask = [.flexibleHeight, .flexibleWidth]
 
     // Add child view controllers
-    addChildViewController(workspaceViewController)
-    addChildViewController(trashCanViewController)
-    addChildViewController(toolboxCategoryListViewController)
-    addChildViewController(toolboxCategoryViewController)
+    addChild(workspaceViewController)
+    addChild(trashCanViewController)
+    addChild(toolboxCategoryListViewController)
+    addChild(toolboxCategoryViewController)
 
     // Add views
     let viewInfo: [String: Any] = [
@@ -497,11 +498,11 @@ public protocol WorkbenchViewControllerDelegate: class {
     view.addSubview(workspaceDragLayerView)
 
     // Order the subviews from back to front
-    view.sendSubview(toBack: workspaceViewController.view)
-    view.bringSubview(toFront: trashCanViewController.view)
-    view.bringSubview(toFront: toolboxCategoryViewController.view)
-    view.bringSubview(toFront: workspaceDragLayerView)
-    view.bringSubview(toFront: toolboxCategoryListViewController.view)
+    view.sendSubviewToBack(workspaceViewController.view)
+    view.bringSubviewToFront(trashCanViewController.view)
+    view.bringSubviewToFront(toolboxCategoryViewController.view)
+    view.bringSubviewToFront(workspaceDragLayerView)
+    view.bringSubviewToFront(toolboxCategoryListViewController.view)
 
     // Set up auto-layout constraints
     let undoRedoButtonSize = CGSize(width: 36, height: 36)
@@ -515,7 +516,7 @@ public protocol WorkbenchViewControllerDelegate: class {
     if style == .alternate {
       // Position the button inside the trashCanView to be `(iconPadding, iconPadding)`
       // away from the top-trailing corner.
-      trashCanView.setButtonPadding(top: iconPadding, leading: 0, bottom: 0, trailing: iconPadding)
+      trashCanView.setButtonPadding(top: 20, leading: 20, bottom: 20, trailing: 20)
       constraints = [
         // Position the toolbox category list along the bottom margin, and let the workspace view
         // fill the rest of the space
@@ -559,11 +560,11 @@ public protocol WorkbenchViewControllerDelegate: class {
     } else {
       // Position the button inside the trashCanView to be `(iconPadding, iconPadding)`
       // away from the bottom-trailing corner.
-      trashCanView.setButtonPadding(top: 0, leading: 0, bottom: iconPadding, trailing: iconPadding)
+      trashCanView.setButtonPadding(top: 0, leading: 0, bottom: 0, trailing: 50)
       constraints = [
         // Position the toolbox category list along the leading margin, and let the workspace view
         // fill the rest of the space
-        "H:|[toolboxCategoriesListView][workspaceView]|",
+        "H:|[toolboxCategoriesListView(\(categoryWidth))][workspaceView]|",
         "V:|[toolboxCategoriesListView]|",
         "V:|[workspaceView]|",
         // Position the toolbox category view beside the category list
@@ -579,23 +580,35 @@ public protocol WorkbenchViewControllerDelegate: class {
         "V:[redoButton]-(iconPadding)-[bottomGuide]",
         // Position the trash can button along the bottom-trailing margin (horizontal part handled
         // below).
-        "V:[trashCanView][bottomGuide]",
+//        "V:|[trashCanView]|",
+//        "H:|[trashCanView(300)]",
         // Position the trash can folder view on the bottom of the view, between the toolbox
         // category view and trash can button
-        "H:[toolboxCategoryView]-[trashCanFolderView]-(iconPadding)-[trashCanView]",
+        "H:[toolboxCategoryView]-[trashCanFolderView]",
         "V:[trashCanFolderView]|",
       ]
-
+      
+      
+      if #available(iOS 9.0, *) {
+        trashCanView.copy(from: toolboxCategoryListViewController.view)
+        
+      } else {
+        // Fallback on earlier versions
+      }
+      view.bringSubviewToFront(trashCanView)
+      trashCanView.backgroundColor = UIColor.white.withAlphaComponent(0.7)
+      setTrashCanViewVisible(false)
+      
       // If possible, create horizontal constraints that respect the safe area. If not, default
       // to using the superview's leading/trailing margins.
-      if #available(iOS 11.0, *) {
-        trashCanView.trailingAnchor.constraint(
-          equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
-      } else {
-        constraints.append(contentsOf: [
-          "H:[trashCanView]|"
-        ])
-      }
+//      if #available(iOS 11.0, *) {
+//        trashCanView.trailingAnchor.constraint(
+//          equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
+//      } else {
+//        constraints.append(contentsOf: [
+//          "H:[trashCanView]|"
+//        ])
+//      }
     }
 
     // Add constraints
@@ -608,10 +621,10 @@ public protocol WorkbenchViewControllerDelegate: class {
     view.addGestureRecognizer(panGesture)
 
     // Signify to view controllers that they've been moved to this parent
-    workspaceViewController.didMove(toParentViewController: self)
-    trashCanViewController.didMove(toParentViewController: self)
-    toolboxCategoryListViewController.didMove(toParentViewController: self)
-    toolboxCategoryViewController.didMove(toParentViewController: self)
+    workspaceViewController.didMove(toParent: self)
+    trashCanViewController.didMove(toParent: self)
+    toolboxCategoryListViewController.didMove(toParent: self)
+    toolboxCategoryViewController.didMove(toParent: self)
 
     // Update workspace view edge insets to account for control overlays
     let controlHeight =
@@ -641,10 +654,10 @@ public protocol WorkbenchViewControllerDelegate: class {
     // Register for keyboard notifications
     NotificationCenter.default.addObserver(
       self, selector: #selector(keyboardWillShowNotification(_:)),
-      name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+      name: UIResponder.keyboardWillShowNotification, object: nil)
     NotificationCenter.default.addObserver(
       self, selector: #selector(keyboardWillHideNotification(_:)),
-      name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+      name: UIResponder.keyboardWillHideNotification, object: nil)
 
     // Clear out any pending events first. We only care about events moving forward.
     EventManager.shared.firePendingEvents()
@@ -657,7 +670,7 @@ public protocol WorkbenchViewControllerDelegate: class {
     super.viewDidLoad()
 
     // Hide/show trash can
-    setTrashCanViewVisible(enableTrashCan)
+//    setTrashCanViewVisible(enableTrashCan)
 
     refreshView()
   }
@@ -934,11 +947,12 @@ extension WorkbenchViewController {
       // Always keep `stateCategoryOpen` if it existed before
       keepStates.insert(stateCategoryOpen)
     }
-
+    //BURAK USTUN DRAG STATES
     switch stateValue {
     case stateDraggingBlock:
+      setTrashCanViewVisible(true)
       // Dragging a block can only co-exist with highlighting the trash can
-      keepStates.insert(stateTrashCanHighlighted)
+//      keepStates.insert(stateTrashCanHighlighted)
     case stateTrashCanHighlighted:
       // This state can co-exist with anything, keep all states.
       keepStates.formUnion(state)
@@ -947,14 +961,22 @@ extension WorkbenchViewController {
       // `stateCategoryOpen`, but nothing else
       keepStates.insert(statePresentingPopover)
       keepStates.insert(stateCategoryOpen)
+      setTrashCanViewVisible(false)
+//      setTrashCanViewVisible(false)
     case statePresentingPopover:
       // If `stateCategoryOpen` already existed, continue to let it exist (as users may want to
       // modify blocks from inside the toolbox). Disallow everything else.
+//      setTrashCanViewVisible(false)
       keepStates.insert(stateCategoryOpen)
-    case stateDidPanWorkspace, stateDidTapWorkspace, stateCategoryOpen, stateTrashCanOpen:
+    case stateDidPanWorkspace, stateDidTapWorkspace, stateCategoryOpen:
+      setTrashCanViewVisible(false)
       // These states are all exclusive. Don't keep anything else.
       break
+    case stateTrashCanOpen:
+//      setTrashCanViewVisible(false)
+      break
     default:
+//      setTrashCanViewVisible(false)
       // This is a custom defined state. Let a delegate method handle what states should be kept.
       break
     }
@@ -1050,7 +1072,9 @@ extension WorkbenchViewController {
   }
 
   fileprivate func setTrashCanViewVisible(_ visible: Bool) {
-    trashCanView.isHidden = !visible
+    if trashCanView.isHidden == visible {
+      trashCanView.isHidden = !visible
+    }
   }
 
   fileprivate func setTrashCanFolderVisible(_ visible: Bool, animated: Bool) {
@@ -1573,7 +1597,7 @@ extension WorkbenchViewController {
     addUIStateValue(stateEditingTextField)
 
     if let keyboardEndSize =
-      (notification.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
+      (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue
     {
       // Increase the canvas' bottom padding so the text field isn't hidden by the keyboard (when
       // the user edits a text field, it is automatically scrolled into view by the system as long
@@ -1581,7 +1605,7 @@ extension WorkbenchViewController {
       // Note: workspaceView.scrollView.scrollIndicatorInsets isn't changed here since there
       // doesn't seem to be a reliable way to check when the keyboard has been split or not (which
       // would makes it hard for us to figure out where to place the scroll indicators)
-      let contentInsets = UIEdgeInsetsMake(0, 0, keyboardEndSize.height, 0)
+      let contentInsets = UIEdgeInsets.init(top: 0, left: 0, bottom: keyboardEndSize.height, right: 0)
       workspaceView.scrollView.contentInset = contentInsets
     }
   }
@@ -1783,27 +1807,32 @@ extension WorkbenchViewController: BlocklyPanGestureRecognizerDelegate {
       addUIStateValue(stateDraggingBlock)
       do {
         try _dragger.startDraggingBlockLayout(blockLayout, touchPosition: workspacePosition)
+        removeUIStateValue(stateCategoryOpen, animated: false)
       } catch let error {
         bky_assertionFailure("Could not start dragging block layout: \(error)")
 
         // This shouldn't happen in practice. Cancel the gesture to be safe.
         gesture.cancelAllTouches()
       }
-    } else if touchState == .changed || touchState == .ended {
+    } else if touchState == .changed {
       addUIStateValue(stateDraggingBlock)
       _dragger.continueDraggingBlockLayout(blockLayout, touchPosition: workspacePosition)
-
       if isGestureTouchingTrashCan(gesture) && blockLayout.block.deletable {
         addUIStateValue(stateTrashCanHighlighted)
       } else {
         removeUIStateValue(stateTrashCanHighlighted)
+        trashCanView.setHighlighted(false, animated: true)
       }
+ 
+    } else if touchState == .ended {
+      
     }
 
     if (touchState == .ended || touchState == .cancelled) && _dragger.numberOfActiveDrags > 0 {
       let touchTouchingTrashCan = isTouchTouchingTrashCan(touchPosition,
         fromView: workspaceView.scrollView)
       if touchState == .ended && touchTouchingTrashCan && blockLayout.block.deletable {
+        setTrashCanViewVisible(false)
         // This block is being "deleted" -- cancel the drag and copy the block into the trash can
         _dragger.cancelDraggingBlockLayout(blockLayout)
 
@@ -1832,9 +1861,9 @@ extension WorkbenchViewController: BlocklyPanGestureRecognizerDelegate {
       if _dragger.numberOfActiveDrags == 0 {
         // Update the UI state
         removeUIStateValue(stateDraggingBlock)
-        if !isGestureTouchingTrashCan(gesture) {
-          removeUIStateValue(stateTrashCanHighlighted)
-        }
+//        if !isGestureTouchingTrashCan(gesture) {
+//          removeUIStateValue(stateTrashCanHighlighted)
+//        }
 
         EventManager.shared.popGroup()
       }
@@ -1842,6 +1871,9 @@ extension WorkbenchViewController: BlocklyPanGestureRecognizerDelegate {
       // Always fire pending events after a finger has been lifted. All grouped events will
       // eventually get grouped together regardless if they were fired in batches.
       EventManager.shared.firePendingEvents()
+      if touchState == .ended  {
+        setTrashCanViewVisible(false)
+      }
     }
   }
 }
@@ -1881,6 +1913,7 @@ extension WorkbenchViewController: UIGestureRecognizerDelegate {
         return true
       } else {
         panGestureRecognizer.cancelAllTouches()
+        setTrashCanViewVisible(false)
         return false
       }
     }
@@ -1932,5 +1965,21 @@ extension WorkbenchViewController {
     }
 
     return gestureRecognizers.contains(interactivePopGestureRecognizer)
+  }
+}
+
+
+extension UIView {
+  @available(iOS 9.0, *)
+  /// Copy constraint from another view
+  ///
+  /// - Parameter view: The view that you want constraints.
+  /// - @available(iOS 9.0, *)
+  func copy(from view : UIView) {
+    self.translatesAutoresizingMaskIntoConstraints = false
+    self.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+    self.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+    self.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+    self.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
   }
 }

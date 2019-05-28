@@ -64,7 +64,7 @@ import Foundation
 
       // Force the input view to always be drawn behind sibling views (which could be other
       // blocks).
-      self.superview?.sendSubview(toBack: self)
+      self.superview?.sendSubviewToBack(self)
     }
   }
 

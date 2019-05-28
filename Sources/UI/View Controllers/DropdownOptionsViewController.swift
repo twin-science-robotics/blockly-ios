@@ -61,7 +61,7 @@ public protocol DropdownOptionsViewControllerDelegate: class {
   /// Delegate for events that occur on this controller
   open weak var delegate: DropdownOptionsViewControllerDelegate?
   /// The font to render each cell
-  open var textLabelFont = UIFont.systemFont(ofSize: 18) {
+  open var textLabelFont =  UIFont(name: "MuseoSansRounded-700", size: 16)! {
     didSet {
       // Recalculate the preferred content size
       calculatePreferredContentSize()
@@ -76,7 +76,7 @@ public protocol DropdownOptionsViewControllerDelegate: class {
   /// The estimated width of the checkmark accessory (this value does not appear to be accessible)
   fileprivate let accessoryWidth = CGFloat(30)
   /// The cell padding
-  fileprivate let cellPadding = UIEdgeInsetsMake(16, 16, 16, 16)
+  fileprivate let cellPadding = UIEdgeInsets.init(top: 16, left: 16, bottom: 16, right: 16)
 
   // MARK: - Super
 

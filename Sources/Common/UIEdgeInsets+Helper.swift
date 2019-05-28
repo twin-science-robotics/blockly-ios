@@ -29,8 +29,8 @@ internal func bky_UIEdgeInsetsMake(
   _ top: CGFloat, _ leading: CGFloat, _ bottom: CGFloat, _ trailing: CGFloat) -> UIEdgeInsets {
 
   if UIApplication.shared.userInterfaceLayoutDirection == .rightToLeft {
-    return UIEdgeInsetsMake(top, trailing, bottom, leading)
+    return UIEdgeInsets.init(top: top, left: trailing, bottom: bottom, right: leading)
   } else {
-    return UIEdgeInsetsMake(top, leading, bottom, trailing)
+    return UIEdgeInsets.init(top: top, left: leading, bottom: bottom, right: trailing)
   }
 }

@@ -250,19 +250,19 @@ import Foundation
     setStringArray(["variables_set", "math_change"], for: LayoutConfig.UniqueVariableBlocks)
 
     setFontCreator({ scale in
-      return UIFont.boldSystemFont(ofSize: 16 * scale)
+      return  UIFont(name: "MuseoSansRounded-700", size: 13 * scale)!
     }, for: LayoutConfig.GlobalFont)
 
     setFontCreator({ scale in
-      return UIFont.systemFont(ofSize: 16 * scale)
+      return UIFont(name: "MuseoSansRounded-700", size: 13 * scale)!
     }, for: LayoutConfig.PopoverLabelFont)
 
     setFontCreator({ scale in
-      return UIFont.systemFont(ofSize: 13 * scale)
+      return  UIFont(name: "MuseoSansRounded-700", size: 13 * scale)!
       }, for: LayoutConfig.PopoverTitleFont)
 
     setFontCreator({ scale in
-      return UIFont.systemFont(ofSize: 13 * scale)
+      return  UIFont(name: "MuseoSansRounded-700", size: 13 * scale)!
       }, for: LayoutConfig.PopoverSubtitleFont)
   }
 

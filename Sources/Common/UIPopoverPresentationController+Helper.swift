@@ -48,7 +48,7 @@ extension UIPopoverPresentationController {
 
     // Take into account the safe area.
     if #available(iOS 11.0, *) {
-      containerBounds = UIEdgeInsetsInsetRect(containerBounds, containerView.safeAreaInsets)
+      containerBounds = containerBounds.inset(by: containerView.safeAreaInsets)
     }
 
     // Take into account the navigation bar if the presenting controller is a

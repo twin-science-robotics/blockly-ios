@@ -43,7 +43,7 @@ import Foundation
    - returns: The `CGRect` including the padding.
    */
   open override func textRect(forBounds bounds: CGRect) -> CGRect {
-    return textAlignment == .center ? bounds : UIEdgeInsetsInsetRect(bounds, _uiEdgeInsetPadding)
+    return textAlignment == .center ? bounds : bounds.inset(by: _uiEdgeInsetPadding)
   }
 
   /**
@@ -53,6 +53,6 @@ import Foundation
    - returns: The `CGRect` including the padding.
    */
   open override func editingRect(forBounds bounds: CGRect) -> CGRect {
-    return textAlignment == .center ? bounds : UIEdgeInsetsInsetRect(bounds, _uiEdgeInsetPadding)
+    return textAlignment == .center ? bounds : bounds.inset(by: _uiEdgeInsetPadding)
   }
 }

@@ -74,7 +74,7 @@ import Foundation
   private lazy var addVariableButton: Button = {
     let button = Button()
     let buttonText = message(forKey: "BKY_IOS_VARIABLES_ADD_VARIABLE")
-    button.setTitle(buttonText, for: UIControlState.normal)
+    button.setTitle(buttonText, for: UIControl.State.normal)
     button.setTitleColor(ColorPalette.grey.tint200, for: .normal)
     button.setTitleColor(ColorPalette.grey.tint600, for: .highlighted)
     button.backgroundColor = ColorPalette.grey.tint800
@@ -111,7 +111,7 @@ import Foundation
     fatalError("Called unsupported initializer")
   }
 
-  open override func viewDidLoad() {
+  public override func viewDidLoad() {
     super.viewDidLoad()
 
     if #available(iOS 11.0, *) {
@@ -256,7 +256,7 @@ import Foundation
 
     if let category = category, category.categoryType == .variable {
       // Take into account the size of the variable button when calculating the size of the toolbox
-      let size = addVariableButton.systemLayoutSizeFitting(UILayoutFittingExpandedSize)
+      let size = addVariableButton.systemLayoutSizeFitting(UIView.layoutFittingExpandedSize)
       newWidth = max(newWidth, size.width)
       newHeight = max(newHeight, size.height)
     }

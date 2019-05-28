@@ -79,11 +79,11 @@ import Foundation
 
         // Force the mutator view to always be drawn behind sibling views (which could be other
         // blocks).
-        self.superview?.sendSubview(toBack: self)
+        self.superview?.sendSubviewToBack(self)
       }
 
       let topPadding = layout.engine.viewUnitFromWorkspaceUnit(4)
-      self.popoverButton.contentEdgeInsets = UIEdgeInsetsMake(topPadding, 0, topPadding, 0)
+      self.popoverButton.contentEdgeInsets = UIEdgeInsets.init(top: topPadding, left: 0, bottom: topPadding, right: 0)
       self.popoverButton.tintColor =
         layout.config.color(for: DefaultLayoutConfig.MutatorSettingsButtonColor)
 
@@ -350,7 +350,7 @@ fileprivate class MutatorProcedureDefinitionPopoverController: UITableViewContro
   }
 
   override func tableView(_ tableView: UITableView,
-    commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath)
+    commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath)
   {
     if indexPath.section == SECTION_PARAMETERS && indexPath.row < mutatorLayout.parameters.count &&
       editingStyle == .delete
@@ -552,7 +552,7 @@ fileprivate class ParameterCellView: UITableViewCell {
 
   // MARK: - Initializers
 
-  override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+  override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
     super.init(style: .default, reuseIdentifier: reuseIdentifier)
 
     let views: [String: UIView] = ["textField": textField]

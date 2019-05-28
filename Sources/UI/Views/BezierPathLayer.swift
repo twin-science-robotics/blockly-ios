@@ -56,7 +56,7 @@ Layer used to draw a `UIBezierPath`.
   }
 
   private func commonInit() {
-    fillRule = kCAFillRuleEvenOdd
+    fillRule = CAShapeLayerFillRule.evenOdd
     drawsAsynchronously = true
   }
 
@@ -93,8 +93,8 @@ Layer used to draw a `UIBezierPath`.
       animation.fromValue = fromBezierPath
       animation.toValue = bezierPath?.cgPath
       animation.duration = animationDuration
-      animation.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
-      animation.fillMode = kCAFillModeBoth // Keeps `self.path` set to `toValue` on completion
+      animation.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+      animation.fillMode = CAMediaTimingFillMode.both // Keeps `self.path` set to `toValue` on completion
       animation.isRemovedOnCompletion = false // Keeps `self.path` set to `toValue` on completion
       add(animation, forKey: animation.keyPath)
     }

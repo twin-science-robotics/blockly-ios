@@ -34,7 +34,7 @@ import Foundation
   /// Layer for rendering the block's background
   fileprivate let _backgroundLayer: BezierPathLayer = {
     var layer = BezierPathLayer()
-    layer.lineCap = kCALineCapRound
+    layer.lineCap = CAShapeLayerLineCap.round
     // Set z-position so it renders below most other layers (all layers default to 0).
     layer.zPosition = -1
     return layer
@@ -43,7 +43,7 @@ import Foundation
   /// Layer for rendering the block's connection highlight overlay.
   fileprivate let _connectionHighlightLayer: BezierPathLayer = {
     var layer = BezierPathLayer()
-    layer.lineCap = kCALineCapRound
+    layer.lineCap = CAShapeLayerLineCap.round
     layer.fillColor = nil
     // Set z-position so it renders above most other layers (all layers default to 0).
     layer.zPosition = 1
@@ -53,7 +53,7 @@ import Foundation
   /// Layer for rendering the block's highlight overlay
   fileprivate let _blockHighlightLayer: BezierPathLayer = {
     var layer = BezierPathLayer()
-    layer.lineCap = kCALineCapRound
+    layer.lineCap = CAShapeLayerLineCap.round
     layer.fillColor = nil
     // Set z-position so it renders above most other layers (all layers default to 0).
     layer.zPosition = 2
@@ -95,7 +95,7 @@ import Foundation
      from outside your event-handling code, you may specify nil.
    - returns: The view object that is the farthest descendent the current view and contains `point`.
   */
-  open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+  public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
     let hitTestView = super.hitTest(point, with: event)
 
     if hitTestView == self {
@@ -110,7 +110,7 @@ import Foundation
     return hitTestView
   }
 
-  open override func refreshView(
+  public override func refreshView(
     forFlags flags: LayoutFlag = LayoutFlag.All, animated: Bool = false)
   {
     super.refreshView(forFlags: flags, animated: animated)
@@ -214,7 +214,7 @@ import Foundation
 
           // If this block is highlighted, bring it to the top so its highlight layer doesn't get
           // covered by other sibling blocks.
-          self.superview?.bringSubview(toFront: self)
+          self.superview?.bringSubviewToFront(self)
         } else {
           self._blockHighlightLayer.setBezierPath(nil, animated: false)
         }
@@ -253,12 +253,12 @@ import Foundation
 
         // Bring this block to the top so its connection highlight doesn't get covered by
         // sibling blocks.
-        self.superview?.bringSubview(toFront: self)
+        self.superview?.bringSubviewToFront(self)
       }
     })
   }
 
-  open override func prepareForReuse() {
+  public override func prepareForReuse() {
     super.prepareForReuse()
 
     // Disable animating layer changes, so that the next block layout that uses this view instance

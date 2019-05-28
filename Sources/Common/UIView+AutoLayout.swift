@@ -149,7 +149,7 @@ extension UIView {
    */
   internal func bky_updateConstraints(
     animated: Bool, duration: TimeInterval = 0.3, delay: TimeInterval = 0.0,
-    options: UIViewAnimationOptions = UIViewAnimationOptions(), update: @escaping () -> Void,
+    options: UIView.AnimationOptions = UIView.AnimationOptions(), update: @escaping () -> Void,
     completion: ((Bool) -> Void)? = nil) {
 
     let updateView = {

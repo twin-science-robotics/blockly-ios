@@ -78,11 +78,11 @@ import Foundation
 
         // Force the mutator view to always be drawn behind sibling views (which could be other
         // blocks).
-        self.superview?.sendSubview(toBack: self)
+        self.superview?.sendSubviewToBack(self)
       }
 
       let topPadding = layout.engine.viewUnitFromWorkspaceUnit(4)
-      self.popoverButton.contentEdgeInsets = UIEdgeInsetsMake(topPadding, 0, topPadding, 0)
+      self.popoverButton.contentEdgeInsets = UIEdgeInsets.init(top: topPadding, left: 0, bottom: topPadding, right: 0)
       self.popoverButton.tintColor =
         layout.config.color(for: DefaultLayoutConfig.MutatorSettingsButtonColor)
 

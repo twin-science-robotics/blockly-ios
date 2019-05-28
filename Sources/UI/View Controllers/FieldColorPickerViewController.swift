@@ -69,10 +69,10 @@ public protocol FieldColorPickerViewControllerDelegate: class {
 
   /// Preferred number of colors to display per row (this value may not be respected if there is
   /// not enough space available).
-  open var preferredColorsPerRow = 7
+  open var preferredColorsPerRow = 5
 
   /// The size of each color button
-  open var buttonSize: CGSize = CGSize(width: 44, height: 44) {
+  open var buttonSize: CGSize = CGSize(width: 40, height: 40) {
     didSet {
       _flowLayout.itemSize = self.buttonSize
     }
