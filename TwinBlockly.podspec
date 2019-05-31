@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'TwinBlockly'
   s.module_name      = 'TwinBlockly'
-  s.version          = '1.2.3'
+  s.version          = '1.2.4'
   s.summary          = 'Twin version of Blockly'
   s.description      = <<-DESC
   Blockly is a visual editor that allows users to write programs by plugging blocks together.
@@ -31,6 +31,7 @@ Pod::Spec.new do |s|
   s.requires_arc     = true
 
   s.source_files     = 'Sources/**/*'
+  s.exclude_files    = 'Sources/*.plist'
 
   # It appears resources inside xcassets can't be loaded from packaged resource bundles, so that
   # is why we use '.resources', instead of '.resource_bundles' (or else Blockly.xcassets wouldn't

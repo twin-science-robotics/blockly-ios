@@ -10,7 +10,7 @@
 		300CABD11D5CF816000E43B2 /* ConnectionValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CABD01D5CF816000E43B2 /* ConnectionValidator.swift */; };
 		300CABE81D5E8606000E43B2 /* DefaultConnectionValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 300CABE71D5E8606000E43B2 /* DefaultConnectionValidator.swift */; };
 		3059336F1DEE70930064B9F2 /* FieldVariableTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3059336D1DEE6FF00064B9F2 /* FieldVariableTest.swift */; };
-		3064BACF1DAFFC57006425A2 /* Blockly.h in Headers */ = {isa = PBXBuildFile; fileRef = 3064BAC61DAFFC57006425A2 /* Blockly.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		3064BACF1DAFFC57006425A2 /* TwinBlockly.h in Headers */ = {isa = PBXBuildFile; fileRef = 3064BAC61DAFFC57006425A2 /* TwinBlockly.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3064BAD01DAFFC58006425A2 /* BKYBlockJSONFile.h in Headers */ = {isa = PBXBuildFile; fileRef = 3064BAC71DAFFC57006425A2 /* BKYBlockJSONFile.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3064BAD11DAFFC58006425A2 /* BKYEdgeInsets.h in Headers */ = {isa = PBXBuildFile; fileRef = 3064BAC81DAFFC57006425A2 /* BKYEdgeInsets.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		3064BAD21DAFFC58006425A2 /* BKYLayoutConfigStructs.h in Headers */ = {isa = PBXBuildFile; fileRef = 3064BAC91DAFFC57006425A2 /* BKYLayoutConfigStructs.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -19,6 +19,7 @@
 		3064BAD61DAFFC58006425A2 /* BKYWorkspaceUnits.m in Sources */ = {isa = PBXBuildFile; fileRef = 3064BACD1DAFFC57006425A2 /* BKYWorkspaceUnits.m */; };
 		3064BAD71DAFFC58006425A2 /* BKYEdgeInsets.m in Sources */ = {isa = PBXBuildFile; fileRef = 3064BACE1DAFFC57006425A2 /* BKYEdgeInsets.m */; };
 		30DC64DB1D875C88002D2186 /* BlocklyPanGestureRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30DC64DA1D875C88002D2186 /* BlocklyPanGestureRecognizer.swift */; };
+		E65253E2229D7D7C0058A89A /* TwinBlockly.podspec in Resources */ = {isa = PBXBuildFile; fileRef = E65253E1229D7D7C0058A89A /* TwinBlockly.podspec */; };
 		F98FF7E11BB2036A00A4F8E5 /* BlockFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98FF7E01BB2036A00A4F8E5 /* BlockFactory.swift */; };
 		F98FF7E51BB208EB00A4F8E5 /* BlockFactoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98FF7E41BB208EB00A4F8E5 /* BlockFactoryTest.swift */; };
 		F98FF7E71BB4911500A4F8E5 /* BlockBuilderTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = F98FF7E61BB4911500A4F8E5 /* BlockBuilderTest.swift */; };
@@ -85,12 +86,12 @@
 		FA4EE3D51BFE9342000C621F /* all_test_blocks.json in Resources */ = {isa = PBXBuildFile; fileRef = FA4EE3D41BFE9342000C621F /* all_test_blocks.json */; };
 		FA4EE3DA1BFEAECC000C621F /* ConnectionTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4EE3D91BFEAECC000C621F /* ConnectionTest.swift */; };
 		FA5164F91E959914005CAA23 /* bky_messages.json in Resources */ = {isa = PBXBuildFile; fileRef = FA5164C41E959913005CAA23 /* bky_messages.json */; };
-		FA5164FE1E95992F005CAA23 /* Blockly.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5164FA1E95992F005CAA23 /* Blockly.xcassets */; };
+		FA5164FE1E95992F005CAA23 /* TwinBlockly.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA5164FA1E95992F005CAA23 /* TwinBlockly.xcassets */; };
 		FA5164FF1E95992F005CAA23 /* CodeGenerator in Resources */ = {isa = PBXBuildFile; fileRef = FA5164FB1E95992F005CAA23 /* CodeGenerator */; };
 		FA5165001E95992F005CAA23 /* Default in Resources */ = {isa = PBXBuildFile; fileRef = FA5164FC1E95992F005CAA23 /* Default */; };
 		FA5165081E959A09005CAA23 /* bky_constants.json in Resources */ = {isa = PBXBuildFile; fileRef = FA5165061E959A09005CAA23 /* bky_constants.json */; };
 		FA5165091E959A09005CAA23 /* bky_synonyms.json in Resources */ = {isa = PBXBuildFile; fileRef = FA5165071E959A09005CAA23 /* bky_synonyms.json */; };
-		FA548C111B630BAD008BC59C /* Blockly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA548C051B630BAC008BC59C /* Blockly.framework */; };
+		FA548C111B630BAD008BC59C /* TwinBlockly.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA548C051B630BAC008BC59C /* TwinBlockly.framework */; };
 		FA548C8A1B66E861008BC59C /* Block.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA548C861B66E861008BC59C /* Block.swift */; };
 		FA548C8B1B66E861008BC59C /* Connection.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA548C871B66E861008BC59C /* Connection.swift */; };
 		FA548C8C1B66E861008BC59C /* Input.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA548C881B66E861008BC59C /* Input.swift */; };
@@ -247,7 +248,7 @@
 		300CABD01D5CF816000E43B2 /* ConnectionValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionValidator.swift; sourceTree = "<group>"; };
 		300CABE71D5E8606000E43B2 /* DefaultConnectionValidator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DefaultConnectionValidator.swift; sourceTree = "<group>"; };
 		3059336D1DEE6FF00064B9F2 /* FieldVariableTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FieldVariableTest.swift; sourceTree = "<group>"; };
-		3064BAC61DAFFC57006425A2 /* Blockly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Blockly.h; path = ObjC/Blockly.h; sourceTree = "<group>"; };
+		3064BAC61DAFFC57006425A2 /* TwinBlockly.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TwinBlockly.h; path = ObjC/TwinBlockly.h; sourceTree = "<group>"; };
 		3064BAC71DAFFC57006425A2 /* BKYBlockJSONFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKYBlockJSONFile.h; path = ObjC/BKYBlockJSONFile.h; sourceTree = "<group>"; };
 		3064BAC81DAFFC57006425A2 /* BKYEdgeInsets.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKYEdgeInsets.h; path = ObjC/BKYEdgeInsets.h; sourceTree = "<group>"; };
 		3064BAC91DAFFC57006425A2 /* BKYLayoutConfigStructs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BKYLayoutConfigStructs.h; path = ObjC/BKYLayoutConfigStructs.h; sourceTree = "<group>"; };
@@ -256,6 +257,7 @@
 		3064BACD1DAFFC57006425A2 /* BKYWorkspaceUnits.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKYWorkspaceUnits.m; path = ObjC/BKYWorkspaceUnits.m; sourceTree = "<group>"; };
 		3064BACE1DAFFC57006425A2 /* BKYEdgeInsets.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BKYEdgeInsets.m; path = ObjC/BKYEdgeInsets.m; sourceTree = "<group>"; };
 		30DC64DA1D875C88002D2186 /* BlocklyPanGestureRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlocklyPanGestureRecognizer.swift; sourceTree = "<group>"; };
+		E65253E1229D7D7C0058A89A /* TwinBlockly.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = TwinBlockly.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		F98FF7E01BB2036A00A4F8E5 /* BlockFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlockFactory.swift; sourceTree = "<group>"; };
 		F98FF7E21BB2087700A4F8E5 /* block_factory_json_test.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = block_factory_json_test.json; sourceTree = "<group>"; };
 		F98FF7E41BB208EB00A4F8E5 /* BlockFactoryTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BlockFactoryTest.swift; path = JSON/BlockFactoryTest.swift; sourceTree = "<group>"; };
@@ -374,12 +376,12 @@
 		FA5164F61E959913005CAA23 /* vi */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = vi; path = vi.lproj/bky_messages.json; sourceTree = "<group>"; };
 		FA5164F71E959913005CAA23 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "zh-Hans"; path = "zh-Hans.lproj/bky_messages.json"; sourceTree = "<group>"; };
 		FA5164F81E959914005CAA23 /* zh-Hant */ = {isa = PBXFileReference; lastKnownFileType = text.json; name = "zh-Hant"; path = "zh-Hant.lproj/bky_messages.json"; sourceTree = "<group>"; };
-		FA5164FA1E95992F005CAA23 /* Blockly.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Blockly.xcassets; path = "Non-Localized/Blockly.xcassets"; sourceTree = "<group>"; };
+		FA5164FA1E95992F005CAA23 /* TwinBlockly.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = TwinBlockly.xcassets; path = "Non-Localized/TwinBlockly.xcassets"; sourceTree = "<group>"; };
 		FA5164FB1E95992F005CAA23 /* CodeGenerator */ = {isa = PBXFileReference; lastKnownFileType = folder; name = CodeGenerator; path = "Non-Localized/CodeGenerator"; sourceTree = "<group>"; };
 		FA5164FC1E95992F005CAA23 /* Default */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Default; path = "Non-Localized/Default"; sourceTree = "<group>"; };
 		FA5165061E959A09005CAA23 /* bky_constants.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bky_constants.json; sourceTree = "<group>"; };
 		FA5165071E959A09005CAA23 /* bky_synonyms.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = bky_synonyms.json; sourceTree = "<group>"; };
-		FA548C051B630BAC008BC59C /* Blockly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Blockly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA548C051B630BAC008BC59C /* TwinBlockly.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TwinBlockly.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA548C101B630BAD008BC59C /* BlocklyTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlocklyTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA548C5B1B63136F008BC59C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA548C601B63144A008BC59C /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -536,7 +538,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FA548C111B630BAD008BC59C /* Blockly.framework in Frameworks */,
+				FA548C111B630BAD008BC59C /* TwinBlockly.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,7 +548,7 @@
 		3064BAB21DAF3DC1006425A2 /* ObjC */ = {
 			isa = PBXGroup;
 			children = (
-				3064BAC61DAFFC57006425A2 /* Blockly.h */,
+				3064BAC61DAFFC57006425A2 /* TwinBlockly.h */,
 				3064BAC71DAFFC57006425A2 /* BKYBlockJSONFile.h */,
 				3064BAC81DAFFC57006425A2 /* BKYEdgeInsets.h */,
 				3064BACE1DAFFC57006425A2 /* BKYEdgeInsets.m */,
@@ -792,7 +794,7 @@
 		FA5164C21E959901005CAA23 /* Non-Localized */ = {
 			isa = PBXGroup;
 			children = (
-				FA5164FA1E95992F005CAA23 /* Blockly.xcassets */,
+				FA5164FA1E95992F005CAA23 /* TwinBlockly.xcassets */,
 				FA5164FB1E95992F005CAA23 /* CodeGenerator */,
 				FA5164FC1E95992F005CAA23 /* Default */,
 			);
@@ -813,6 +815,7 @@
 		FA548BFB1B630BAC008BC59C = {
 			isa = PBXGroup;
 			children = (
+				E65253E1229D7D7C0058A89A /* TwinBlockly.podspec */,
 				FA548C5E1B63144A008BC59C /* Sources */,
 				FA9B45B81C32D966001EAE68 /* Resources */,
 				FA548C591B63136F008BC59C /* Tests */,
@@ -825,7 +828,7 @@
 		FA548C061B630BAC008BC59C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				FA548C051B630BAC008BC59C /* Blockly.framework */,
+				FA548C051B630BAC008BC59C /* TwinBlockly.framework */,
 				FA548C101B630BAD008BC59C /* BlocklyTests.xctest */,
 			);
 			name = Products;
@@ -1039,7 +1042,7 @@
 			files = (
 				3064BAD21DAFFC58006425A2 /* BKYLayoutConfigStructs.h in Headers */,
 				3064BAD11DAFFC58006425A2 /* BKYEdgeInsets.h in Headers */,
-				3064BACF1DAFFC57006425A2 /* Blockly.h in Headers */,
+				3064BACF1DAFFC57006425A2 /* TwinBlockly.h in Headers */,
 				3064BAD01DAFFC58006425A2 /* BKYBlockJSONFile.h in Headers */,
 				3064BAD41DAFFC58006425A2 /* BKYWorkspaceUnits.h in Headers */,
 			);
@@ -1048,9 +1051,9 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		FA548C041B630BAC008BC59C /* Blockly */ = {
+		FA548C041B630BAC008BC59C /* TwinBlockly */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = FA548C1B1B630BAD008BC59C /* Build configuration list for PBXNativeTarget "Blockly" */;
+			buildConfigurationList = FA548C1B1B630BAD008BC59C /* Build configuration list for PBXNativeTarget "TwinBlockly" */;
 			buildPhases = (
 				FA548C001B630BAC008BC59C /* Sources */,
 				FA548C011B630BAC008BC59C /* Frameworks */,
@@ -1061,9 +1064,9 @@
 			);
 			dependencies = (
 			);
-			name = Blockly;
+			name = TwinBlockly;
 			productName = Blockly;
-			productReference = FA548C051B630BAC008BC59C /* Blockly.framework */;
+			productReference = FA548C051B630BAC008BC59C /* TwinBlockly.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		FA548C0F1B630BAD008BC59C /* BlocklyTests */ = {
@@ -1168,7 +1171,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				FA548C041B630BAC008BC59C /* Blockly */,
+				FA548C041B630BAC008BC59C /* TwinBlockly */,
 				FA548C0F1B630BAD008BC59C /* BlocklyTests */,
 			);
 		};
@@ -1181,10 +1184,11 @@
 			files = (
 				FA5165091E959A09005CAA23 /* bky_synonyms.json in Resources */,
 				FA5164F91E959914005CAA23 /* bky_messages.json in Resources */,
-				FA5164FE1E95992F005CAA23 /* Blockly.xcassets in Resources */,
+				FA5164FE1E95992F005CAA23 /* TwinBlockly.xcassets in Resources */,
 				FA5165001E95992F005CAA23 /* Default in Resources */,
 				FA5164FF1E95992F005CAA23 /* CodeGenerator in Resources */,
 				FA5165081E959A09005CAA23 /* bky_constants.json in Resources */,
+				E65253E2229D7D7C0058A89A /* TwinBlockly.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1427,7 +1431,7 @@
 /* Begin PBXTargetDependency section */
 		FA548C131B630BAD008BC59C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = FA548C041B630BAC008BC59C /* Blockly */;
+			target = FA548C041B630BAC008BC59C /* TwinBlockly */;
 			targetProxy = FA548C121B630BAD008BC59C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1700,7 +1704,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		FA548C1B1B630BAD008BC59C /* Build configuration list for PBXNativeTarget "Blockly" */ = {
+		FA548C1B1B630BAD008BC59C /* Build configuration list for PBXNativeTarget "TwinBlockly" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				FA548C1C1B630BAD008BC59C /* Debug */,
